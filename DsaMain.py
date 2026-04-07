@@ -80,5 +80,91 @@ def insertion_sort(arr):
         arr[j+1]=key
 
     return arr
-arr=[75,90,100,95,85,80]
-print(insertion_sort(arr))
+#arr=[75,90,100,95,85,80]
+#print(insertion_sort(arr))
+
+''' Dividing and Conquer '''
+
+def findMaxMin(arr,i,j):
+    if i==j:
+        max_val=arr[i]
+        min_val=arr[i]
+
+    elif i==j-1:
+        if arr[i]>arr[j]:
+            max_val=arr[i]
+            min_val=arr[j]
+        else:
+            max_val=arr[j]
+            min_val=arr[i]
+
+    else:
+        m=i+(j-i)//2
+        max1,min1=findMaxMin(arr,i,m)
+        max2,min2=findMaxMin(arr,m+1,j)
+
+
+        if max1<max2:
+            max_val=max2
+        else:
+            max_val=max1
+
+        if min1<min2:
+            min_val=min1
+        else:
+            min_val=min2
+    return max_val,min_val
+
+
+
+#arr=[1,2,4,2,5,33,5]
+#i=0
+#j=len(arr)-1
+#print(findMaxMin(arr,i,j))
+
+
+
+def Power(a,n):
+    if n==1:
+        return a
+    elif n==0:
+        return 1
+
+    else:
+        m=n//2
+
+        b=Power(a,m)
+        result=b*b
+
+        if n>0:
+            
+            if n%2==0:
+                 return result
+            else:
+                 return result*a
+
+        else:
+            if n%2==0:
+                 return 1/result
+            else:
+                 return 1/result*a
+
+
+
+
+print(Power(2,16))
+
+
+    
+
+
+    
+    
+
+
+
+
+
+
+
+
