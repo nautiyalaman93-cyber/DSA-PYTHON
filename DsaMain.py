@@ -155,6 +155,42 @@ def Power(a,n):
 print(Power(2,16))
 
 
+
+def CountStep(n):
+    if n==2:
+        return 2
+    elif n==1:
+        return 1
+    else:
+        return CountStep(n-1)+CountStep(n-2)
+
+"""Approach 1"""
+
+
+def collinear(x1,x2,x3,y1,y2,y3):
+    area=0.5*(x1*(y2-y3)+x2*(y3-y2)+x3*(y1-y2))
+    if 0==area:
+        return "Points are Collinear"
+    else:
+        return "Points are Non Collinear"
+
+
+"""Aproach 2"""
+
+def CheckCollinear(x1,x2,x3,y1,y2,y3):
+    if ((y2-y1)*(x3-x2)==(x2-x1)*(y3-y2)):
+        return "Collinear"
+    else:
+        return "Non Collinear"
+
+
+print(CheckCollinear(1,1,1,6,0,9))
+
+
+
+
+
+
     
 
 
